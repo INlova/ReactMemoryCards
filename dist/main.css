@@ -1,0 +1,48 @@
+.board {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-flow: wrap;
+  background: rgba(234, 234, 234, 0.1);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.7);
+  margin: auto; }
+  .board .card {
+    position: relative;
+    background: #232828;
+    box-sizing: border-box;
+    box-shadow: 1px 0 0 0 #EAEAEA, 0 1px 0 0 #EAEAEA, inset 0 1px 0 0 #EAEAEA, inset 1px 0 0 0 #EAEAEA;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #EAEAEA;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    font-size: 160px;
+    z-index: 10; }
+
+html {
+  width: 100%;
+  height: 100%; }
+
+body {
+  font-family: "Helvetica", sans-serif;
+  width: 100%;
+  height: 100%; }
+
+input, textarea, button, a {
+  border: none;
+  outline: none; }
+
+button {
+  font-family: "Helvetica", sans-serif;
+  cursor: pointer;
+  border-radius: 0;
+  background: transparent; }
+
+.game-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/

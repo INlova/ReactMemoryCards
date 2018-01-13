@@ -7,7 +7,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
-        app: ["./src/app.js", "./src/styles/app.scss"]
+        app: ["./src/app.js", "./src/styles/main.scss"]
     },
     output: {
         filename: "[name].js",
@@ -41,8 +41,8 @@ module.exports = {
         ]
     },
     plugins: [
-            new UglifyJsPlugin(),
-            new ExtractTextPlugin({ filename: "app.css" }),
+            //new UglifyJsPlugin(),
+            new ExtractTextPlugin({ filename: "main.css" }),
             new WebpackNotifierPlugin()
     ]
 };

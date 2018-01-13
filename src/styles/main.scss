@@ -1,0 +1,33 @@
+﻿@import 'shared/variables';
+@import 'shared/mixins';
+
+@import 'components/playing-board';
+
+html {
+    width: 100%;
+	height: 100%;
+}
+
+body {
+    @include font;
+    width: 100%;
+	height: 100%;
+}
+
+input, textarea, button, a {
+	border: none;
+	outline: none;
+}
+
+button {
+	@include font;
+	cursor: pointer;
+	border-radius: 0;
+	background: transparent;
+}
+
+.game-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}

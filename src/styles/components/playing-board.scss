@@ -1,0 +1,32 @@
+﻿.board {
+    width: 80%;
+    height: 80%;
+    
+    display: flex;
+    flex-wrap: nowrap;
+    flex-flow: wrap;
+    
+    background: rgba($white, .1);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .7);
+    margin: auto;
+
+    .card {
+        position: relative;
+        background: $black;
+		box-sizing: border-box;
+		box-shadow: 1px 0 0 0 $white,
+			0 1px 0 0 $white,
+			inset 0 1px 0 0 $white,
+			inset 1px 0 0 0 $white;
+		cursor: pointer;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: $white;
+		text-shadow: 0 0 20px rgba(0, 0, 0, .5);
+		font-size: 160px;
+		z-index: 10;
+    }
+}
+
