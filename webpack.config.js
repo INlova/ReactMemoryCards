@@ -3,17 +3,18 @@
 const path = require("path");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const WebpackNotifierPlugin = require("webpack-notifier");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
-        app: "./src/app.js"
+        app: ["./src/app.js", "./src/styles/app.scss"]
     },
     output: {
         filename: "[name].js",
         path: path.join(__dirname, "./dist")
     },
     resolve: {
-        extensions: [".js", ".jsx", ".json"]
+        extensions: [".js", ".jsx", ".scss"]
     },
     devtool: "inline-source-map",
     devServer: {
@@ -22,19 +23,26 @@ module.exports = {
         port: 9000
     },
     module: {
-        loaders: [
+        rules: [
+			{
+			    test: /\.jsx?$/,
+			    exclude: /node_modules/,
+			    loader: "babel-loader",
+			    query: { presets: ["es2015", "react"] }
+			},
             {
-                test: /\.(js|jsx)$/,
-                loader: "babel-loader",
-                exclude: /node_modules/,
-                query: {
-                    presets: ["es2015"]
-                }
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: ["css-loader", "sass-loader"],
+                    publicPath: "./dist/"
+                })
             }
         ]
     },
     plugins: [
             new UglifyJsPlugin(),
+            new ExtractTextPlugin({ filename: "app.css" }),
             new WebpackNotifierPlugin()
     ]
 };
