@@ -1,45 +1,35 @@
 ﻿import React from "react";
-import { Card } from "./card";
-const symbols = ["❄", "❅", "❆", "❉", "✴", "✼", "❃"];
-
-function generateCards(width, height) {
-    const cards = [];
-    const total = width * height / 2;
-    for (let i = 0; i < total; i++) {
-        const id = Math.floor((Math.random() * symbols.length));
-        cards.push(symbols[id], symbols[id]);
-    }
-    cards.sort((a, b) => (Math.random() - 0.5));
-    return cards;
-}
+import Board from "./board";
 
 class Game extends React.Component {
     
     constructor(props) {
         super(props);
-        this.cards = generateCards(4, 2);
         this.state = {
             score: 0,
-            prevCard: null
+            hints: 0
         };
 
-        this.showCard = this.showCard.bind(this);
+        this.incrementScore = this.incrementScore.bind(this);
+        this.handleTick = this.handleTick.bind(this);
     }
 
-    showCard(e) {
-        const target = e.target;
-        console.log(target);
+    incrementScore() {
+        this.setState({
+            score: (this.score + 1)
+        });
+    }
+
+    handleTick(duration) {
+        console.log("tick");
     }
 
     render() {
-        const cards = this.cards
-            .map((data, idx) => {
-                return <Card symbol={data} key={idx} onClick={(e) => this.showCard(e)}/>;
-            });
         return (
-            <div className="board">
-                { cards }
-            </div>
+            <Board
+                size={{ width: 4, height: 2 }}
+                onTick = {this.handleTick}
+            />
         );
     }
 }
