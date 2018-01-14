@@ -1,5 +1,5 @@
 ﻿import React from "react";
-
+import { Card } from "./card";
 const symbols = ["❄", "❅", "❆", "❉", "✴", "✼", "❃"];
 
 function generateCards(width, height) {
@@ -26,19 +26,16 @@ class Game extends React.Component {
         this.showCard = this.showCard.bind(this);
     }
 
-    showCard() {
-        
+    showCard(e) {
+        const target = e.target;
+        console.log(target);
     }
 
     render() {
-        const cards = this.cards.map((data, index) => {
-            return (
-                <div key={index} 
-                     className="card"
-                     style={{width: "25%", height:"50%"}}>
-                    {data}
-                </div>);
-        });
+        const cards = this.cards
+            .map((data, idx) => {
+                return <Card symbol={data} key={idx} onClick={(e) => this.showCard(e)}/>;
+            });
         return (
             <div className="board">
                 { cards }
