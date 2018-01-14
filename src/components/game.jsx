@@ -21,7 +21,6 @@ class Game extends React.Component {
     }
 
     handleTick(duration) {
-        console.log("tick");
     }
 
     render() {

@@ -1,20 +1,9 @@
 ﻿import React from "react";
 import { Card } from "./card";
+import { generateCards } from "../helpers/boardGenerator";
 
 const tickDuration = 100;
 const visibilityDuration = 1000;
-const symbols = ["❄", "❅", "❆", "❉", "✴", "✼", "❃"];
-
-function generateCards(size) {
-    const cards = [];
-    const total = size.width * size.height / 2;
-    for (let i = 0; i < total; i++) {
-        const id = Math.floor((Math.random() * symbols.length));
-        cards.push(symbols[id], symbols[id]);
-    }
-    cards.sort((a, b) => (Math.random() - 0.5));
-    return cards;
-}
 
 class Board extends React.Component {
     
@@ -68,11 +57,11 @@ class Board extends React.Component {
                 const isVisible = !!this.state.visibleCards[idx];
                 const isFound = !!this.state.foundCards[idx];
                 return <Card 
-                    symbol={data} 
                     key={idx} 
+                    symbol={data} 
+                    onClick={() => this.showCard(idx)}
                     isVisible = {isVisible}
                     isFound = {isFound}
-                    onClick={() => this.showCard(idx)}
                     />;
                 });
        return (
