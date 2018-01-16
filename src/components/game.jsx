@@ -7,7 +7,8 @@ class Game extends React.Component {
         super(props);
         this.state = {
             score: 0,
-            hints: 0
+            hints: 0,
+            duration: 0
         };
 
         this.incrementScore = this.incrementScore.bind(this);
@@ -15,21 +16,27 @@ class Game extends React.Component {
     }
 
     incrementScore() {
-        this.setState((prevState) => ({
-            counter: prevState.counter + 1
-        }));
+        this.setState((prevState) => ({ score: prevState.score + 1 }));
     }
 
-    handleTick(duration) {
+    handleTick(tick) {
+        this.setState((prevState) => ({ duration: prevState.duration + tick }));
     }
 
     render() {
         return (
-            <Board
-                size={{ width: 4, height: 2 }}
-                onTick = {this.handleTick}
-                onCardsMatched = {this.incrementScore}
-            />
+            <div>
+                <div> <p>Time : {Math.floor(this.state.duration / 1000)}</p>
+                      <p>Score : {this.state.score }</p>
+                      <p>Hints: {this.state.hints }</p>
+                </div>
+                <Board
+                    size={{ width: 4, height: 2 }}
+                    onTick = {this.handleTick}
+                    onCardsMatched = {this.incrementScore}
+                />
+            </div>
+
         );
     }
 }

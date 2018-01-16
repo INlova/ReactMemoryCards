@@ -12,7 +12,7 @@ export function Card(props) {
             <div className ="card" 
                  style={{width: "25%" , height: "50%"}}
                  onClick={props.onClick}>
-                    {props.isVisible ? props.symbol : ""}
+                    {props.isVisible ? props.symbol: "-"}
            </div>);
     }
 
