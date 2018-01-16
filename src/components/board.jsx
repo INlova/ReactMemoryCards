@@ -26,7 +26,21 @@ class Board extends React.Component {
     showCard(idx) {
         const visibleCards = Object.assign({}, this.state.visibleCards);
         visibleCards[idx] = visibilityDuration;
-        this.setState({ visibleCards: visibleCards });
+        const newState = { visibleCards: visibleCards };
+        const prevCard = this.state.prevCard;
+        if (prevCard !== null && prevCard !== idx && 
+            this.cards[prevCard] === this.cards[idx]) 
+        {
+            const foundCards = Object.assign({}, this.state.foundCards);
+            foundCards[prevCard] = true;
+            foundCards[idx] = true;
+            newState["foundCards"] = foundCards;
+            newState["prevCard"] = null;
+            this.props.onCardsMatched(this.cards[idx]);
+        } else {
+            newState["prevCard"] = idx;
+        }
+        this.setState(newState);
     }
 
     componentDidMount() {

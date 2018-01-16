@@ -16,7 +16,7 @@ class Game extends React.Component {
 
     incrementScore() {
         this.setState({
-            score: (this.score + 1)
+            score: (this.state.score + 1)
         });
     }
 
@@ -28,6 +28,7 @@ class Game extends React.Component {
             <Board
                 size={{ width: 4, height: 2 }}
                 onTick = {this.handleTick}
+                onCardsMatched = {this.incrementScore}
             />
         );
     }
