@@ -15,9 +15,9 @@ class Game extends React.Component {
     }
 
     incrementScore() {
-        this.setState({
-            score: (this.state.score + 1)
-        });
+        this.setState((prevState) => ({
+            counter: prevState.counter + 1
+        }));
     }
 
     handleTick(duration) {
