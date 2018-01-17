@@ -1,11 +1,16 @@
 .board {
+  flex: 1 1 auto;
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-flow: wrap;
-  justify-content: inherit;
-  margin: 25px; }
+  height: 100%; }
+  .board .cards {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-flow: wrap;
+    width: 100%;
+    height: 100%;
+    width: 80%;
+    height: 80%;
+    margin: auto; }
   .board .card {
     display: flex;
     position: relative;
@@ -18,19 +23,24 @@
     font-size: 100px;
     box-sizing: border-box;
     box-shadow: 1px 0 0 0 #EAEAEA, 0 1px 0 0 #EAEAEA, inset 0 1px 0 0 #EAEAEA, inset 1px 0 0 0 #EAEAEA; }
-
-html {
-  width: 100%;
-  height: 100%; }
+  .board .cover {
+    background: #227b79;
+    background: linear-gradient(to bottom right, #227b79, #ffd800); }
 
 body {
   font-family: "Helvetica", sans-serif;
   width: 100%;
-  height: 100%; }
+  height: 100vh;
+  margin: 0;
+  padding: 0; }
 
 input, textarea, button, a {
   border: none;
   outline: none; }
+
+div {
+  margin: 0;
+  padding: 0; }
 
 button {
   font-family: "Helvetica", sans-serif;
@@ -38,11 +48,31 @@ button {
   border-radius: 0;
   background: transparent; }
 
-.game-container {
+.container {
+  width: 100%;
+  height: 100%; }
+
+.game {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-flow: column;
   width: 100%;
   height: 100%;
-  display: flex;
   justify-content: center;
   align-items: center; }
+  .game .header {
+    display: flex;
+    width: 100%;
+    flex: 0 1 auto;
+    background: rgba(0, 213, 255, 0.55);
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center; }
+    .game .header .item {
+      padding: 5px 10px;
+      margin: 3px 10px; }
+  .game .footer {
+    flex: 0 1 40px;
+    background: rgba(0, 213, 255, 0.55); }
 
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/

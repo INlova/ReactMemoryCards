@@ -69,7 +69,6 @@ class Board extends React.Component {
     }
 
     render() {
-        console.log(this.cards);
         const cards = this.cards
             .map((data, idx) => {
                 const isVisible = !!this.state.visibleCards[idx];
@@ -84,7 +83,9 @@ class Board extends React.Component {
                 });
        return (
            <div className="board">
-                { cards }
+                <div className="cards">
+                    { cards }
+                </div>
            </div>);
     }
 }

@@ -9,10 +9,10 @@ export function Card(props) {
             </div>);
     } else {
         return (
-            <div className ="card" 
+            <div className ={props.isVisible ? "card" : "card cover"} 
                  style={{width: "25%" , height: "50%"}}
                  onClick={props.onClick}>
-                    {props.isVisible ? props.symbol: "-"}
+                    {props.isVisible ? props.symbol: ""}
            </div>);
     }
 

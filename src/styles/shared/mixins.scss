@@ -16,3 +16,11 @@
      background: nth(nth($color-stops, 1), 1);
      background: linear-gradient($direction, $color-stops);
  }
+
+ @mixin flex($flow: wrap) {
+     display: flex;
+     flex-wrap: nowrap;
+     flex-flow: $flow;
+     width: 100%;
+     height: 100%;
+ }

@@ -25,10 +25,11 @@ class Game extends React.Component {
 
     render() {
         return (
-            <div>
-                <div> <p>Time : {Math.floor(this.state.duration / 1000)}</p>
-                      <p>Score : {this.state.score }</p>
-                      <p>Hints: {this.state.hints }</p>
+            <div className="game">
+                <div className="header">
+                      <span className="item">Time : {Math.floor(this.state.duration / 1000)}</span>
+                      <span className="item"> Score : {this.state.score }</span>
+                      <span className="item">Hints: {this.state.hints }</span>
                 </div>
                 <Board
                     size={{ width: 4, height: 2 }}
