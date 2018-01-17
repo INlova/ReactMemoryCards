@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import Board from "./board";
+import InfoPanel from "./info-panel"
 
 class Game extends React.Component {
     
@@ -7,30 +8,24 @@ class Game extends React.Component {
         super(props);
         this.state = {
             score: 0,
-            hints: 0,
-            duration: 0
+            hints: 0
         };
 
         this.incrementScore = this.incrementScore.bind(this);
-        this.handleTick = this.handleTick.bind(this);
     }
 
     incrementScore() {
         this.setState((prevState) => ({ score: prevState.score + 1 }));
     }
 
-    handleTick(tick) {
-        this.setState((prevState) => ({ duration: prevState.duration + tick }));
-    }
-
     render() {
         return (
             <div className="game">
-                <div className="info-panel">
-                      <span className="item">Time : {Math.floor(this.state.duration / 1000)}</span>
-                      <span className="item"> Score : {this.state.score }</span>
-                      <span className="item">Hints: {this.state.hints }</span>
-                </div>
+                
+                <InfoPanel
+                    score = {this.state.score}
+                    hints = {this.state.hints}
+                />
                 <Board
                     size={{ width: 4, height: 2 }}
                     onTick = {this.handleTick}
