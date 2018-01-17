@@ -1,19 +1,18 @@
 ﻿import React from "react";
 
 export function Card(props) {
+    const classes = ["card"];
     if (props.isFound) {
-        return (
-            <div className="card found"
-                 style={{width: "25%" , height: "50%"}}>
-                    {props.symbol}
-            </div>);
-    } else {
-        return (
-            <div className ={props.isVisible ? "card" : "card cover"} 
-                 style={{width: "25%" , height: "50%"}}
-                 onClick={props.onClick}>
-                    {props.isVisible ? props.symbol: ""}
-           </div>);
+        classes.push("found");
+    } else if (!props.isVisible) {
+        classes.push("cover");
     }
-
+    return (
+        <div className="card-container" style={props.style}>
+            <div className={classes.join(" ")} 
+                 onClick={props.isFound ? null : props.onClick}>
+                {props.isFound || props.isVisible ? props.symbol: ""}
+            </div>
+        </div>
+        );
 }

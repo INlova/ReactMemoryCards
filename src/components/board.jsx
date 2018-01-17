@@ -79,13 +79,12 @@ class Board extends React.Component {
                     onClick={() => this.showCard(idx)}
                     isVisible = {isVisible}
                     isFound = {isFound}
+                    style={{width: "25%" , height: "50%"}}
                     />;
                 });
        return (
            <div className="board">
-                <div className="cards">
                     { cards }
-                </div>
            </div>);
     }
 }

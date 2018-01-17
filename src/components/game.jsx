@@ -26,7 +26,7 @@ class Game extends React.Component {
     render() {
         return (
             <div className="game">
-                <div className="header">
+                <div className="info-panel">
                       <span className="item">Time : {Math.floor(this.state.duration / 1000)}</span>
                       <span className="item"> Score : {this.state.score }</span>
                       <span className="item">Hints: {this.state.hints }</span>
@@ -37,7 +37,6 @@ class Game extends React.Component {
                     onCardsMatched = {this.incrementScore}
                 />
             </div>
-
         );
     }
 }
