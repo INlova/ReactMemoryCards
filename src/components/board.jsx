@@ -1,8 +1,9 @@
 ﻿import React from "react";
 import { Card } from "./card";
 import { generateCards } from "../helpers/boardGenerator";
+import { equalKeys } from "../helpers/comparers";
 
-const tickDuration = 100;
+const tickDuration = 50;
 const visibilityDuration = 1000;
 
 class Board extends React.Component {
@@ -56,6 +57,16 @@ class Board extends React.Component {
         clearInterval(this.timer);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (!equalKeys(nextState.visibleCards, this.state.visibleCards)) {
+            return true;
+        }
+        if (!equalKeys(nextState.foundCards, this.state.foundCards)) {
+            return true;
+        }
+        return false;
+    }
+
     handleTick() {
         const cards = Object.assign({}, this.state.visibleCards);
         for (let key in cards) {
@@ -65,10 +76,10 @@ class Board extends React.Component {
             }
         }
         this.setState({ visibleCards: cards });
-        this.props.onTick(tickDuration);
     }
 
     render() {
+        console.log("render board");
         const cards = this.cards
             .map((data, idx) => {
                 const isVisible = !!this.state.visibleCards[idx];

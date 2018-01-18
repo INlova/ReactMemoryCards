@@ -21,14 +21,12 @@ class Game extends React.Component {
     render() {
         return (
             <div className="game">
-                
                 <InfoPanel
                     score = {this.state.score}
                     hints = {this.state.hints}
                 />
                 <Board
                     size={{ width: 4, height: 2 }}
-                    onTick = {this.handleTick}
                     onCardsMatched = {this.incrementScore}
                 />
             </div>
