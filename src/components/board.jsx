@@ -1,4 +1,6 @@
 ﻿import React from "react";
+import PropTypes from "prop-types";
+
 import { Card } from "./card";
 import { generateCards } from "../helpers/boardGenerator";
 import { equalKeys } from "../helpers/comparers";
@@ -98,6 +100,12 @@ class Board extends React.Component {
                     { cards }
            </div>);
     }
-}
+};
+
+Board.propTypes = {
+    size: PropTypes.object.isRequired,
+    level: PropTypes.number.isRequired,
+    onCardsMatched: PropTypes.func.isRequired
+};
 
 export default Board;

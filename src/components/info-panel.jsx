@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import PropTypes from "prop-types";
 
 class InfoPanel extends React.Component 
 {
@@ -51,6 +52,11 @@ class InfoPanel extends React.Component
             </div>
         );
     }
-}
+};
+
+InfoPanel.propTypes = {
+    score: PropTypes.number.isRequired,
+    hints: PropTypes.number.isRequired
+};
 
 export default InfoPanel;
