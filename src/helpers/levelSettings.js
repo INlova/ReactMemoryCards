@@ -1,18 +1,27 @@
-﻿
-const levels = {
+﻿const levelSettings = {
     easy: {
-        width: 4,
-        height: 2
+        maxScore: 4,
+        hints: 3,
+        boardSize: {
+            width: 4,
+            height: 2
+        }
     },
-
     normal: {
-        width: 4,
-        height: 4
+        maxScore: 8,
+        hints: 3,
+        boardSize: {
+            width: 4,
+            height: 4
+        }
     },
-
     hard: {
-        width: 6,
-        height: 5
+        maxScore: 15,
+        hints: 5,
+        boardSize: {
+            width: 6,
+            height: 5
+        }
     }
 }
 
@@ -23,12 +32,12 @@ function isPortrait() {
    return isMobile || (docElement.clientWidth / docElement.clientHeight <= 1);
 }
 
-export function getLevelSettings(levelType) {
-    const settings = Object.assign({}, levels[levelType] || levels.normal);
+export function getLevelSettings(difficulty) {
+    const settings = Object.assign({}, levelSettings[difficulty] || levelSettings.normal);
     if (isPortrait()) {
-        const temp = settings.width;
-        settings.width = settings.height;
-        settings.height = temp;
+        const temp = settings.boardSize.width;
+        settings.boardSize.width = settings.boardSize.height;
+        settings.boardSize.height = temp;
     }
     return settings;
 }

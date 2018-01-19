@@ -38,6 +38,21 @@
       color: lightgray;
       background: #333; }
 
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin: 30px;
+  color: #EAEAEA;
+  font-size: 40px;
+  background: #232828; }
+  .result p {
+    display: flex;
+    padding: 20px 5px; }
+
 * {
   box-sizing: border-box;
   margin: 0;

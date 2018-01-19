@@ -15,6 +15,7 @@ class Board extends React.Component {
         
         this.cards = generateCards(props.size);
         this.timer = null;
+
         this.state = {
             visibleCards: {},
             foundCards: {},
@@ -60,6 +61,9 @@ class Board extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.level !== this.props.level) {
+            return true;
+        }
         if (!equalKeys(nextState.visibleCards, this.state.visibleCards)) {
             return true;
         }
@@ -81,7 +85,6 @@ class Board extends React.Component {
     }
 
     render() {
-        console.log("render board");
         const cards = this.cards
             .map((data, idx) => {
                 const isVisible = !!this.state.visibleCards[idx];

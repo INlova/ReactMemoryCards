@@ -3,4 +3,4 @@ import ReactDOM from "react-dom";
 
 import Game from "./components/game";
 
-ReactDOM.render(<Game/>, document.querySelector(".container") );
+ReactDOM.render(<Game difficulty="easy"/>, document.querySelector(".container") );

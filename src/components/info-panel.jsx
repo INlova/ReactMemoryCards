@@ -9,9 +9,6 @@ class InfoPanel extends React.Component
             seconds: 0,
             minutes: 0
         }
-
-        this.timer = null;
-        this.handleTick = this.handleTick.bind(this);
     }
 
     handleTick() {
@@ -30,14 +27,14 @@ class InfoPanel extends React.Component
         });
     }
 
-    componentDidMount() {
-        this.timer = setInterval(
-            this.handleTick,
-            1000);
-    }
-
-    componentWillUnmount(){
-        clearInterval(this.timer);
+    componentWillReceiveProps(nextProps) {
+        const duration = nextProps.duration / 1000;
+        const seconds = duration % 60;
+        const minutes = (duration - seconds) / 60;
+        this.setState({
+            seconds: seconds,
+            minutes: minutes
+        });
     }
 
     render() {
