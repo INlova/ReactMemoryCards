@@ -1,4 +1,4 @@
-﻿const levelSettings = {
+﻿export const levelSettings = {
     easy: {
         maxScore: 4,
         hints: 3,
@@ -33,7 +33,8 @@ function isPortrait() {
 }
 
 export function getLevelSettings(difficulty) {
-    const settings = Object.assign({}, levelSettings[difficulty] || levelSettings.normal);
+    const origin = levelSettings[difficulty] || levelSettings.normal;
+    const settings = JSON.parse(JSON.stringify(origin));
     if (isPortrait()) {
         const temp = settings.boardSize.width;
         settings.boardSize.width = settings.boardSize.height;
