@@ -6,7 +6,7 @@ import InfoPanel from "./info-panel"
 import { Result } from "./result";
 
 
-import { getLevelSettings } from "../helpers/levelSettings"
+import { getLevelSettings } from "../helpers/level-settings"
 
 const timerDelay = 1000;
 

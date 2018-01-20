@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 
 import { Card } from "./card";
-import { generateCards } from "../helpers/boardGenerator";
+import { generateCards } from "../helpers/board-generator";
 import { equalKeys } from "../helpers/comparers";
 
 const tickDuration = 50;
