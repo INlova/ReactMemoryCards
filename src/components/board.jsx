@@ -14,6 +14,7 @@ class Board extends React.Component {
         super(props);
         
         this.cards = generateCards(props.size);
+        this.updateCardSize(props.size);
         this.timer = null;
 
         this.state = {
@@ -22,9 +23,16 @@ class Board extends React.Component {
             prevCard: null,
             showAll: false
         };
-        
+
         this.showCard = this.showCard.bind(this);
         this.handleTick = this.handleTick.bind(this);
+    }
+
+    updateCardSize(boardSize) {
+        this.cardSize = {
+            width: `${Math.floor(100 / boardSize.width)}%`,
+            height: `${Math.floor(100 / boardSize.height)}%`
+        };
     }
 
     showCard(idx) {
@@ -84,6 +92,10 @@ class Board extends React.Component {
         this.setState({ visibleCards: cards });
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.updateCardSize(nextProps.size);
+    }
+
     render() {
         const cards = this.cards
             .map((data, idx) => {
@@ -95,7 +107,7 @@ class Board extends React.Component {
                     onClick={() => this.showCard(idx)}
                     isVisible = {isVisible}
                     isFound = {isFound}
-                    style={{width: "25%" , height: "50%"}}
+                    style={{width: this.cardSize.width , height: this.cardSize.height }}
                     />;
                 });
        return (

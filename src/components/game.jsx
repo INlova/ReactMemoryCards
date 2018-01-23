@@ -30,6 +30,10 @@ class Game extends React.Component {
         this.resetGame = this.resetGame.bind(this);
     }
 
+    isGameCompleted() {
+        return this.state.score === this.levelSettings.maxScore;
+    }
+
     incrementScore() {
         this.setState((prevState) => ({ score: prevState.score + 1 }));
     }
@@ -63,12 +67,12 @@ class Game extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.difficulty !== this.props.difficulty) {
-            this.resetGame();
+            this.resetGame(nextProps.difficulty);
         }
     }
 
     render() {
-        if (this.state.score === this.levelSettings.maxScore) {
+        if (this.isGameCompleted()) {
             return (<Result {...this.state} />);
         }
         return (
