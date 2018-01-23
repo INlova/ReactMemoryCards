@@ -3,7 +3,7 @@
 
 @import 'components/info-panel';
 @import 'components/playing-board';
-@import 'components/result';
+@import 'components/popup';
 
 * {
     box-sizing: border-box;
@@ -12,6 +12,7 @@
 }
 
 body {
+    @include font;
     display: flex;
     flex-direction: column;
     height: 100vh;

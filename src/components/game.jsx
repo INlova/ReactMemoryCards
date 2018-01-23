@@ -1,9 +1,9 @@
 ﻿import React from "react";
-import PropTypes from "prop-types";
 
 import Board from "./board";
 import InfoPanel from "./info-panel"
 import { Result } from "./result";
+import { LevelSelection } from "./level-selection";
 
 
 import { getLevelSettings } from "../helpers/level-settings"
@@ -27,7 +27,11 @@ class Game extends React.Component {
 
         this.incrementScore = this.incrementScore.bind(this);
         this.handleTick = this.handleTick.bind(this);
-        this.resetGame = this.resetGame.bind(this);
+        this.selectLevel = this.selectLevel.bind(this);
+    }
+
+    isLevelSelecting() {
+        return this.state.level === 0;
     }
 
     isGameCompleted() {
@@ -38,13 +42,14 @@ class Game extends React.Component {
         this.setState((prevState) => ({ score: prevState.score + 1 }));
     }
 
-    resetGame(difficulty) {
+    selectLevel(difficulty) {
         this.levelSettings = getLevelSettings(difficulty);
         const newLevel = this.state.level + 1;
+        const hints = this.levelSettings.hints;
 
         this.setState({
             score: 0,
-            hints: levelSettings.hints,
+            hints: hints,
             level: newLevel,
             duration: 0
         });
@@ -72,8 +77,11 @@ class Game extends React.Component {
     }
 
     render() {
+        if (this.isLevelSelecting()) {
+            return (<LevelSelection onLevelSelected = { this.selectLevel } />);
+        }
         if (this.isGameCompleted()) {
-            return (<Result {...this.state} />);
+            return (<Result {...this.state} onLevelSelected = { this.selectLevel } />);
         }
         return (
             <div className="game">
@@ -86,10 +94,6 @@ class Game extends React.Component {
             </div>
         );
     }
-}
-
-Board.propTypes = {
-    difficulty: PropTypes.string
 }
 
 export default Game;

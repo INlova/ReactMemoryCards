@@ -5,7 +5,7 @@
 }
 
 @mixin font {
-	 font-family: "Helvetica", sans-serif;
+	 font-family: 'Inconsolata', monospace;
  }
 
  @mixin linear-gradient($direction, $color-stops...) {

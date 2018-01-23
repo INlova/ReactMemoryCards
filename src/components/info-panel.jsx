@@ -43,8 +43,8 @@ class InfoPanel extends React.Component
         const formattedMinutes = minutes > 9 ? minutes : `0${minutes}`; 
         return (
             <div className="info-panel">
-                <span className="item"> Score : {this.props.score }</span>
-                <span className="item">Time : {formattedMinutes} : {formattedSeconds}</span>
+                <span className="item">Score : {this.props.score }</span>
+                <span className="item">Total time {formattedMinutes} : {formattedSeconds}</span>
                 <span className="item">Hints: {this.props.hints }</span>
             </div>
         );

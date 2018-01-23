@@ -45,7 +45,7 @@ class Board extends React.Component {
         const prevCard = this.state.prevCard;
         if (prevCard !== null && prevCard !== idx && 
             this.state.visibleCards[prevCard] &&
-            this.cards[prevCard] === this.cards[idx]) 
+            this.cards[prevCard] == this.cards[idx]) 
         {
             const foundCards = Object.assign({}, this.state.foundCards);
             foundCards[prevCard] = true;
