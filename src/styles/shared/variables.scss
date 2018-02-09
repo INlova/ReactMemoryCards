@@ -4,9 +4,10 @@ $max-height: 500px;
 $white: #EAEAEA;
 $black: #232828;
 $grey: #808080;
+$light-grey: lighten($grey, 25%);
 
-$blue: #3498db;
-$light-blue: #3cb0fd;
+$red: tomato;
+$light-red: lighten($red, 15%);
 
 $font-size-lines: 30px;
 $font-size: 20px;

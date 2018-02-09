@@ -1,6 +1,6 @@
 ﻿import React from "react";
 
-export function LevelSelection(props) {
+export default function LevelSelection(props) {
     return (<div className="levels popup">
                 <p>Hello and welcome to the Memory Cards game</p>
                 <p>Flip the cards over and match the pairs as quickly as possible!</p>

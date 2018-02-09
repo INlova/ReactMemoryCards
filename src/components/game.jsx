@@ -1,10 +1,10 @@
 ﻿import React from "react";
 
 import Board from "./board";
-import InfoPanel from "./info-panel"
-import { Result } from "./result";
-import { LevelSelection } from "./level-selection";
-
+import InfoPanel from "./info-panel";
+import Footer from "./footer-panel";
+import Result from "./result";
+import LevelSelection from "./level-selection";
 
 import { getLevelSettings } from "../helpers/level-settings"
 
@@ -91,6 +91,7 @@ class Game extends React.Component {
                     size={ this.levelSettings.boardSize }
                     onCardsMatched = {this.incrementScore}
                 />
+                <Footer />
             </div>
         );
     }

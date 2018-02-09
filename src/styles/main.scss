@@ -2,6 +2,7 @@
 @import 'shared/mixins';
 
 @import 'components/info-panel';
+@import 'components/footer';
 @import 'components/playing-board';
 @import 'components/popup';
 
@@ -23,3 +24,4 @@ body {
     flex-direction: column;
     flex: 1;
 }
+

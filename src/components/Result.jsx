@@ -1,6 +1,6 @@
 ﻿import React from "react";
 
-export function Result(props) {
+export default function Result(props) {
     return (
         <div className="result popup">
              <p>Wow! You've found them all!</p>

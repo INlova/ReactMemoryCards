@@ -11,12 +11,34 @@
     color: #EAEAEA;
     text-align: center; }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+  background: #232828; }
+  .footer p {
+    flex: 1 1 100%;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: #EAEAEA;
+    text-align: center; }
+  .footer a {
+    color: tomato; }
+    .footer a:hover {
+      color: #ffa494; }
+    .footer a:visited {
+      color: tomato; }
+
 .board {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   flex: 1;
-  padding: 10px 25px; }
+  padding: 10px 25px;
+  width: 100%;
+  max-width: 1020px;
+  margin: auto; }
   .board .card-container {
     display: flex;
     padding: 2px;
@@ -36,11 +58,15 @@
       color: #EAEAEA;
       font-size: 100px; }
     .board .card-container .cover {
-      background: #227b79;
-      background: linear-gradient(to bottom right, #227b79, #ffd800); }
+      background-color: #232828;
+      background-image: radial-gradient(closest-side, transparent 98%, tomato 99%), radial-gradient(closest-side, transparent 98%, tomato 99%);
+      background-size: 80px 80px;
+      background-position: 0 0, 40px 40px;
+      border: 2px solid #232828;
+      text-align: right; }
     .board .card-container .found {
-      color: lightgray;
-      background: #555; }
+      color: #ffa494;
+      background: #808080; }
 
 .popup {
   display: flex;
@@ -59,7 +85,7 @@
   .popup button {
     margin: 0 5px;
     padding: 10px 20px 10px 20px;
-    background: #3498db;
+    background: tomato;
     color: #EAEAEA;
     font-size: 24px;
     text-decoration: none;
@@ -67,7 +93,7 @@
     border-radius: 3px;
     cursor: pointer; }
     .popup button:hover {
-      background: #8bc4ea;
+      background: #ffa494;
       color: #232828;
       border-radius: 0; }
 

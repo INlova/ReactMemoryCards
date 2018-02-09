@@ -8,6 +8,10 @@
     flex: 1;
     padding: 10px 25px;
 
+    width: 100%;
+    max-width: 1020px;
+    margin: auto;
+
     .card-container {
         display: flex;
         padding: 2px;
@@ -28,12 +32,14 @@
         }
 
         .cover {
-            @include linear-gradient(to bottom right, #227b79, #ffd800);
+            @include waves-background($red, $black);
+            border: 2px solid $black;
+            text-align: right;
         }
 
         .found {
-            color: lightgray;
-            background: #555;
+            color: $light-red;
+            background: $grey;
         }
     }
 }

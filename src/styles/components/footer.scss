@@ -1,0 +1,27 @@
+﻿@import '../shared/variables';
+
+.footer {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 5px 0;
+     background: $black;
+
+     p {
+         flex: 1 1 100%;
+         padding: 5px 10px;
+         font-weight: bold;
+         color: $white;
+         text-align: center;
+     }
+
+     a {
+         color: $red;
+         &:hover {
+             color: $light-red;
+         }
+         &:visited{
+             color: $red;
+         }
+     }
+}
