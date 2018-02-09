@@ -62,8 +62,12 @@
       background-image: radial-gradient(closest-side, transparent 98%, tomato 99%), radial-gradient(closest-side, transparent 98%, tomato 99%);
       background-size: 80px 80px;
       background-position: 0 0, 40px 40px;
-      border: 2px solid #232828;
-      text-align: right; }
+      border: 2px solid #232828; }
+      .board .card-container .cover:hover {
+        background-color: #232828;
+        background-image: radial-gradient(closest-side, transparent 98%, #ffa494 99%), radial-gradient(closest-side, transparent 98%, #ffa494 99%);
+        background-size: 80px 80px;
+        background-position: 0 0, 40px 40px; }
     .board .card-container .found {
       color: #ffa494;
       background: #808080; }
