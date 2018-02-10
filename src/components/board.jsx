@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import PropTypes from "prop-types";
 
-import { Card } from "./card";
+import Card from "./card";
 import { generateCards } from "../helpers/board-generator";
 import { equalKeys } from "../helpers/comparers";
 
@@ -45,7 +45,7 @@ class Board extends React.Component {
         const prevCard = this.state.prevCard;
         if (prevCard !== null && prevCard !== idx && 
             this.state.visibleCards[prevCard] &&
-            this.cards[prevCard] == this.cards[idx]) 
+            this.cards[prevCard] === this.cards[idx]) 
         {
             const foundCards = Object.assign({}, this.state.foundCards);
             foundCards[prevCard] = true;

@@ -1,7 +1,6 @@
 ﻿export const levelSettings = {
     easy: {
         maxScore: 4,
-        hints: 3,
         boardSize: {
             width: 4,
             height: 2
@@ -9,7 +8,6 @@
     },
     normal: {
         maxScore: 8,
-        hints: 3,
         boardSize: {
             width: 4,
             height: 4
@@ -17,7 +15,6 @@
     },
     hard: {
         maxScore: 15,
-        hints: 5,
         boardSize: {
             width: 6,
             height: 5

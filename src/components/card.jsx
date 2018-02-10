@@ -1,6 +1,6 @@
 ﻿import React from "react";
 
-export function Card(props) {
+export default function card(props) {
     const classes = ["card"];
     if (props.isFound) {
         classes.push("found");

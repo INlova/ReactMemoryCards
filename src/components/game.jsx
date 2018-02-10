@@ -21,7 +21,6 @@ class Game extends React.Component {
         this.state = {
             level: 0,
             score: 0,
-            hints: this.levelSettings.hints,
             duration: 0
         };
 
@@ -45,11 +44,9 @@ class Game extends React.Component {
     selectLevel(difficulty) {
         this.levelSettings = getLevelSettings(difficulty);
         const newLevel = this.state.level + 1;
-        const hints = this.levelSettings.hints;
 
         this.setState({
             score: 0,
-            hints: hints,
             level: newLevel,
             duration: 0
         });

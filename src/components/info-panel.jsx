@@ -45,15 +45,13 @@ class InfoPanel extends React.Component
             <div className="info-panel">
                 <span className="item">Score : {this.props.score }</span>
                 <span className="item">Total time {formattedMinutes} : {formattedSeconds}</span>
-                <span className="item">Hints: {this.props.hints }</span>
             </div>
         );
     }
 };
 
 InfoPanel.propTypes = {
-    score: PropTypes.number.isRequired,
-    hints: PropTypes.number.isRequired
+    score: PropTypes.number.isRequired
 };
 
 export default InfoPanel;
