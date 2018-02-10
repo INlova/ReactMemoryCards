@@ -11,22 +11,6 @@ class InfoPanel extends React.Component
         }
     }
 
-    handleTick() {
-        let { seconds, minutes} = this.state;
-        
-        seconds = seconds + 1;
-
-        if (seconds === 60) {
-            seconds = 0;
-            minutes++;
-        }
-
-        this.setState({
-            seconds: seconds,
-            minutes: minutes
-        });
-    }
-
     componentWillReceiveProps(nextProps) {
         const duration = nextProps.duration / 1000;
         const seconds = duration % 60;
@@ -36,6 +20,11 @@ class InfoPanel extends React.Component
             minutes: minutes
         });
     }
+    
+    shouldComponentUpdate(nextProps, nextState) {
+        return (this.state.seconds !== nextState.seconds) ||
+               (this.state.minutes !== nextState.minutes);
+    }
 
     render() {
         const { seconds, minutes } = this.state;
@@ -43,15 +32,16 @@ class InfoPanel extends React.Component
         const formattedMinutes = minutes > 9 ? minutes : `0${minutes}`; 
         return (
             <div className="info-panel">
-                <span className="item">Score : {this.props.score }</span>
-                <span className="item">Total time {formattedMinutes} : {formattedSeconds}</span>
+                <span className="item score">Score : {this.props.score}</span>
+                <span className="item time">Total time {formattedMinutes} : {formattedSeconds}</span>
             </div>
         );
     }
 };
 
 InfoPanel.propTypes = {
-    score: PropTypes.number.isRequired
+    score: PropTypes.number.isRequired,
+    duration: PropTypes.number.isRequired
 };
 
 export default InfoPanel;

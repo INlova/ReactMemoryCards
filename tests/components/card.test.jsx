@@ -50,7 +50,7 @@ describe("<Card /> Component", function() {
 
     it("should be clickable when cover is on top", () => {
         let clickCounter = 0;
-        const clickSpy = () => { console.log("CLICK CARD!!!"); clickCounter++; }
+        const clickSpy = () => { clickCounter++; }
         const props = { "isVisible" : true, "onClick": clickSpy };
         const cardComponent = shallow(<Card {...props}/>);
         cardComponent.find(".card").simulate("click");
@@ -59,7 +59,7 @@ describe("<Card /> Component", function() {
 
     it("should not be clickable when card is found", () => {
         let clickCounter = 0;
-        const clickSpy = () => { console.log("CLICK CARD!!!"); clickCounter++; }
+        const clickSpy = () => { clickCounter++; }
         const props = { "isFound" : true, "onClick": clickSpy };
         const cardComponent = shallow(<Card {...props}/>);
         cardComponent.find(".card").simulate("click");
@@ -68,7 +68,7 @@ describe("<Card /> Component", function() {
 
     it("should be clickable when card is already flipped", () => {
             let clickCounter = 0;
-            const clickSpy = () => { console.log("CLICK CARD!!!"); clickCounter++; }
+            const clickSpy = () => { clickCounter++; }
             const props = { "isVisible" : true, "onClick": clickSpy };
             const cardComponent = shallow(<Card {...props}/>);
             cardComponent.find(".card").simulate("click");
