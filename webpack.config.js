@@ -1,7 +1,6 @@
 ﻿/// <binding ProjectOpened='Watch - Development' />
 
 const path = require("path");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const WebpackNotifierPlugin = require("webpack-notifier");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -41,7 +40,6 @@ module.exports = {
         ]
     },
     plugins: [
-            new UglifyJsPlugin(),
             new ExtractTextPlugin({ filename: "main.css" }),
             new WebpackNotifierPlugin()
     ]

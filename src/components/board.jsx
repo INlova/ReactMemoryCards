@@ -34,6 +34,7 @@ class Board extends React.Component {
     }
 
     showCard(idx) {
+        console.log("showCard");
         const visibleCards = Object.assign({}, this.state.visibleCards);
         visibleCards[idx] = cardVisibilityDuration;
         const newState = {
