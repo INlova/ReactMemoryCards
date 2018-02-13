@@ -7,8 +7,7 @@ import Result from "./result";
 import LevelSelection from "./level-selection";
 
 import { getLevelSettings } from "../helpers/level-settings"
-
-const timerDelay = 1000;
+import { infoTickDuration as tickDuration }  from "../helpers/timer-settings";
 
 class Game extends React.Component {
     
@@ -55,7 +54,7 @@ class Game extends React.Component {
     }
 
     handleTick() {
-        const newDuration = this.state.duration + timerDelay;
+        const newDuration = this.state.duration + tickDuration;
         this.setState({duration : newDuration});
     }
 
@@ -67,7 +66,7 @@ class Game extends React.Component {
         this.stopTimer();
         this.timer = setInterval(
             this.handleTick,
-            timerDelay);
+            tickDuration);
     }
 
     stopTimer() {

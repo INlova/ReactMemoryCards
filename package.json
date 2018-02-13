@@ -20,7 +20,8 @@
     },
     "scripts": {
         "test": "mocha --compilers js:babel-register tests/**/*.test.js*",
-        "test-game": "mocha --compilers js:babel-register tests/**/game.test.js*"
+        "test-game-component": "mocha --compilers js:babel-register tests/**/game.test.js*",
+        "test-board-component": "mocha --compilers js:babel-register tests/**/board.test.js*"
     },
     "dependencies": {
         "react": "^16.0.0",

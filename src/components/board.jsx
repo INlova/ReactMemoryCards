@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 import Card from "./card";
 import { generateCards } from "../helpers/board-generator";
 import { equalKeys } from "../helpers/comparers";
-
-const tickDuration = 50;
-const visibilityDuration = 1000;
+import { boardTickDuration as tickDuration, cardVisibilityDuration }  from "../helpers/timer-settings";
 
 class Board extends React.Component {
     
@@ -37,7 +35,7 @@ class Board extends React.Component {
 
     showCard(idx) {
         const visibleCards = Object.assign({}, this.state.visibleCards);
-        visibleCards[idx] = visibilityDuration;
+        visibleCards[idx] = cardVisibilityDuration;
         const newState = {
             visibleCards: visibleCards,
             prevCard: null
