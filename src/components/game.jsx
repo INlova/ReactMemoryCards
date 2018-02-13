@@ -50,6 +50,8 @@ class Game extends React.Component {
             level: newLevel,
             duration: 0
         });
+
+        this.startTimer();
     }
 
     handleTick() {
@@ -57,19 +59,26 @@ class Game extends React.Component {
         this.setState({duration : newDuration});
     }
 
-    componentDidMount() {
+    componentWillUnmount() {
+        this.stopTimer();
+    }
+
+    startTimer() {
+        this.stopTimer();
         this.timer = setInterval(
             this.handleTick,
             timerDelay);
     }
 
-    componentWillUnmount(){
-        clearInterval(this.timer);
+    stopTimer() {
+        if (!!this.timer) {
+            clearInterval(this.timer);
+        }
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.difficulty !== this.props.difficulty) {
-            this.resetGame(nextProps.difficulty);
+            this.selectLevel(nextProps.difficulty);
         }
     }
 
@@ -78,6 +87,7 @@ class Game extends React.Component {
             return (<LevelSelection onLevelSelected = { this.selectLevel } />);
         }
         if (this.isGameCompleted()) {
+            this.stopTimer();
             return (<Result {...this.state} onLevelSelected = { this.selectLevel } />);
         }
         return (

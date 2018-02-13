@@ -19,7 +19,8 @@
         "url": "https://github.com/maryzam/ReactMemoryCards.git"
     },
     "scripts": {
-        "test": "mocha --compilers js:babel-register tests/**/*.test.js*"
+        "test": "mocha --compilers js:babel-register tests/**/*.test.js*",
+        "test-game": "mocha --compilers js:babel-register tests/**/game.test.js*"
     },
     "dependencies": {
         "react": "^16.0.0",
