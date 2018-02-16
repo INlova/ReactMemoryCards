@@ -42,7 +42,9 @@
   .board .card-container {
     display: flex;
     padding: 2px;
-    cursor: none; }
+    cursor: none;
+    min-width: 150px;
+    min-height: 150px; }
     .board .card-container .card {
       user-select: none;
       -moz-user-select: none;
@@ -87,19 +89,7 @@
     display: flex;
     padding-bottom: 10px; }
   .popup button {
-    margin: 0 5px;
-    padding: 10px 20px 10px 20px;
-    background: tomato;
-    color: #EAEAEA;
-    font-size: 24px;
-    text-decoration: none;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer; }
-    .popup button:hover {
-      background: #ffa494;
-      color: #232828;
-      border-radius: 0; }
+    font-size: 24px; }
 
 * {
   box-sizing: border-box;
@@ -116,5 +106,19 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1; }
+
+button {
+  margin: 0 5px;
+  padding: 10px 20px 10px 20px;
+  background: tomato;
+  color: #EAEAEA;
+  text-decoration: none;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer; }
+  button:hover {
+    background: #ffa494;
+    color: #232828;
+    border-radius: 0; }
 
 /*# sourceMappingURL=main.css.map*/

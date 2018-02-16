@@ -15,10 +15,11 @@ class Game extends React.Component {
         super(props);
 
         this.timer = null;
-        this.levelSettings = getLevelSettings(props.difficulty);
+        this.levelSettings = null;
 
         this.state = {
             level: 0,
+            difficulty: null,
             score: 0,
             duration: 0
         };
@@ -26,18 +27,33 @@ class Game extends React.Component {
         this.incrementScore = this.incrementScore.bind(this);
         this.handleTick = this.handleTick.bind(this);
         this.selectLevel = this.selectLevel.bind(this);
+        this.newGame = this.newGame.bind(this);
     }
 
     isLevelSelecting() {
-        return this.state.level === 0;
+        return !this.state.difficulty;
     }
 
     isGameCompleted() {
-        return this.state.score === this.levelSettings.maxScore;
+        return !!this.state.difficulty && 
+                 this.state.score === this.levelSettings.maxScore;
     }
 
     incrementScore() {
         this.setState((prevState) => ({ score: prevState.score + 1 }));
+        if (this.isGameCompleted()) {
+            this.stopTimer();
+        }
+    }
+
+    newGame() {
+        this.stopTimer();
+        this.setState((prevState) => ({
+            level: prevState.level + 1,
+            difficulty: null,
+            score: 0,
+            duration: 0
+        }));
     }
 
     selectLevel(difficulty) {
@@ -46,6 +62,7 @@ class Game extends React.Component {
 
         this.setState({
             score: 0,
+            difficulty: difficulty,
             level: newLevel,
             duration: 0
         });
@@ -75,23 +92,17 @@ class Game extends React.Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.difficulty !== this.props.difficulty) {
-            this.selectLevel(nextProps.difficulty);
-        }
-    }
-
     render() {
         if (this.isLevelSelecting()) {
             return (<LevelSelection onLevelSelected = { this.selectLevel } />);
         }
         if (this.isGameCompleted()) {
-            this.stopTimer();
             return (<Result {...this.state} onLevelSelected = { this.selectLevel } />);
         }
         return (
             <div className="game">
-                <InfoPanel {...this.state} />
+                <InfoPanel {...this.state} 
+                        newGame = { this.newGame }/>
                 <Board
                     level = { this.state.level }
                     size={ this.levelSettings.boardSize }

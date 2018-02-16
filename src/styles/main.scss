@@ -25,3 +25,19 @@ body {
     flex: 1;
 }
 
+button {
+    margin: 0 5px;
+    padding: 10px 20px 10px 20px;
+    background: $red;
+    color: $white;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+        background: $light-red;
+        color: $black;
+        border-radius: 0;
+    }
+}

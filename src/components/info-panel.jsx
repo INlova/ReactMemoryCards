@@ -34,6 +34,9 @@ class InfoPanel extends React.Component
             <div className="info-panel">
                 <span className="item score">Score : {this.props.score}</span>
                 <span className="item time">Total time {formattedMinutes} : {formattedSeconds}</span>
+                <span className="item reset">
+                    <button onClick={this.props.newGame}>New game</button>
+                </span>
             </div>
         );
     }
@@ -41,7 +44,9 @@ class InfoPanel extends React.Component
 
 InfoPanel.propTypes = {
     score: PropTypes.number.isRequired,
-    duration: PropTypes.number.isRequired
+    duration: PropTypes.number.isRequired,
+    resetGame: PropTypes.func.isRequired,
+    newGame: PropTypes.func.isRequired
 };
 
 export default InfoPanel;
