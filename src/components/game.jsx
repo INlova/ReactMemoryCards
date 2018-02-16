@@ -28,6 +28,7 @@ class Game extends React.Component {
         this.handleTick = this.handleTick.bind(this);
         this.selectLevel = this.selectLevel.bind(this);
         this.newGame = this.newGame.bind(this);
+        this.resetGame = this.resetGame.bind(this);
     }
 
     isLevelSelecting() {
@@ -51,6 +52,14 @@ class Game extends React.Component {
         this.setState((prevState) => ({
             level: prevState.level + 1,
             difficulty: null,
+            score: 0,
+            duration: 0
+        }));
+    }
+
+    resetGame() {
+        this.setState((prevState) => ({
+            level: prevState.level + 1,
             score: 0,
             duration: 0
         }));
@@ -99,10 +108,13 @@ class Game extends React.Component {
         if (this.isGameCompleted()) {
             return (<Result {...this.state} onLevelSelected = { this.selectLevel } />);
         }
+        console.log("render game");
         return (
             <div className="game">
                 <InfoPanel {...this.state} 
-                        newGame = { this.newGame }/>
+                            newGame = { this.newGame }
+                            resetGame = { this.resetGame}
+                />
                 <Board
                     level = { this.state.level }
                     size={ this.levelSettings.boardSize }

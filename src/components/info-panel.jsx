@@ -35,6 +35,7 @@ class InfoPanel extends React.Component
                 <span className="item score">Score : {this.props.score}</span>
                 <span className="item time">Total time {formattedMinutes} : {formattedSeconds}</span>
                 <span className="item reset">
+                    <button onClick={this.props.resetGame}>Reset</button>
                     <button onClick={this.props.newGame}>New game</button>
                 </span>
             </div>

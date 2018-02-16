@@ -11,16 +11,17 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         
-        this.cards = generateCards(props.size);
-        this.updateCardSize(props.size);
         this.timer = null;
+
 
         this.state = {
             visibleCards: {},
             foundCards: {},
-            prevCard: null,
-            showAll: false
+            prevCard: null
         };
+
+        this.cards = generateCards(props.size);
+        this.updateCardSize(props.size);
 
         this.showCard = this.showCard.bind(this);
         this.handleTick = this.handleTick.bind(this);
@@ -34,7 +35,6 @@ class Board extends React.Component {
     }
 
     showCard(idx) {
-        console.log("showCard");
         const visibleCards = Object.assign({}, this.state.visibleCards);
         visibleCards[idx] = cardVisibilityDuration;
         const newState = {
@@ -92,7 +92,19 @@ class Board extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        this.reset(nextProps.level);
         this.updateCardSize(nextProps.size);
+    }
+
+    reset(newLevel) {
+        if (newLevel !== this.props.level) {
+            this.cards = generateCards(this.props.size);
+            this.setState({
+                visibleCards: {},
+                foundCards: {},
+                prevCard: null
+            });
+        }
     }
 
     render() {

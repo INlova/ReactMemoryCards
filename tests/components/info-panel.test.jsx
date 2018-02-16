@@ -29,4 +29,12 @@ describe("<InfoPanel /> Component", function() {
         expect(timeBlock.text()).to.contains( "59" );
     });
 
+    it("should render 'Reset' and 'New Game' buttons", () => {
+        const infoPanel = shallow(<InfoPanel />);
+        const buttons = infoPanel.find("button");
+        expect(buttons.length).to.equal(2);
+        expect(buttons.someWhere(b => b.text() === "New game")).to.equal(true);
+        expect(buttons.someWhere(b => b.text() === "Reset")).to.equal(true);
+    });
+
 });
