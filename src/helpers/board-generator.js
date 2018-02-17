@@ -1,4 +1,4 @@
-﻿const symbols = ["❄", "❅", "❆", "❉", "✴", "✼", "❃"];
+﻿const symbols = ["❄", "❅", "⭐", "❉", "✴", "✼", "❃"];
 
 export function generateCards(size) {
     const cards = [];
